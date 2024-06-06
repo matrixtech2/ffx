@@ -1,0 +1,87 @@
+/* General Styles */
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('images/images.jpeg');
+    background-size: cover; /* Makes sure the image covers the entire background */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Keeps the background fixed on scroll */
+}
+
+
+header {
+    background-color: #ff6f61;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 28px;
+    margin-top: 20px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+p {
+    margin-top: 0;
+}
+
+#searchBox {
+    background-color: #fff;
+    border: 2px solid #ff6f61;
+    border-radius: 5px;
+    color: #333;
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.device-info {
+    margin-top: 20px;
+}
+
+.device-card {
+    background-color: #fff;
+    border: 2px solid #ff6f61;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.device-card:hover {
+    transform: translateY(-5px);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}

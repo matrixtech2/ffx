@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire Sensitivities</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <ul>
+            <nav>
+                <li>
+                    <img src="images/matrix2.jpg">
+                </li>
+            </nav>
+        </ul>
+        <div class="container">
+            <h1>Free Fire Sensitivities</h1>
+            <p>Find the best sensitivities for your device!</p>
+            <input type="text" id="searchBox" placeholder="Search for your device...">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="results">
+                <h2>Search Results</h2>
+                <div id="device-info" class="device-info">
+                    <!-- Search results will appear here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        const devices = [
+            {
+                brand: "iTel",
+                models: [
+                    { name: "A25", general: 50, redDot: 70, twoXScope: 90, fourXScope: 110, awmScope: 130 },
+                    { name: "A37", general: 55, redDot: 75, twoXScope: 95, fourXScope: 115, awmScope: 135 },
+                    { name: "P36", general: 60, redDot: 80, twoXScope: 100, fourXScope: 120, awmScope: 140 },
+                    { name: "S15", general: 65, redDot: 85, twoXScope: 105, fourXScope: 125, awmScope: 145 }
+                ]
+            },
+            {
+                brand: "Infinix",
+                models: [
+                    { name: "Hot 10", general: 45, redDot: 65, twoXScope: 85, fourXScope: 105, awmScope: 125 },
+                    { name: "Note 8", general: 50, redDot: 70, twoXScope: 90, fourXScope: 110, awmScope: 130 },
+                    { name: "Zero 8", general: 55, redDot: 75, twoXScope: 95, fourXScope: 115, awmScope: 135 },
+                    { name: "Smart 5", general: 60, redDot: 80, twoXScope: 100, fourXScope: 120, awmScope: 140 }
+                ]
+            },
+            {
+                brand: "Redmi",
+                models: [
+                    { name: "Note 10", general: 40, redDot: 60, twoXScope: 80, fourXScope: 100, awmScope: 120 },
+                    { name: "9A", general: 45, redDot: 65, twoXScope: 85, fourXScope: 105, awmScope: 125 },
+                    { name: "9C", general: 50, redDot: 70, twoXScope: 90, fourXScope: 110, awmScope: 130 },
+                    { name: "K30", general: 55, redDot: 75, twoXScope: 95, fourXScope: 115, awmScope: 135 }
+                ]
+            },
+            {
+                brand: "Samsung",
+                models: [
+                    { name: "Galaxy S21", general: 60, redDot: 80, twoXScope: 100, fourXScope: 120, awmScope: 140 },
+                    { name: "Galaxy S21 Ultra", general: 65, redDot: 85, twoXScope: 105, fourXScope: 125, awmScope: 145 },
+                    { name: "Galaxy S20", general: 70, redDot: 90, twoXScope: 110, fourXScope: 130, awmScope: 150 },
+                    { name: "Galaxy S20 FE", general: 75, redDot: 95, twoXScope: 115, fourXScope: 135, awmScope: 155 },
+                    { name: "Galaxy S10", general: 80, redDot: 100, twoXScope: 120, fourXScope: 140, awmScope: 160 },
+                    { name: "Galaxy S10e", general: 85, redDot: 105, twoXScope: 125, fourXScope: 145, awmScope: 165 },
+                    { name: "Galaxy S9", general: 90, redDot: 110, twoXScope: 130, fourXScope: 150, awmScope: 170 },
+                    { name: "Galaxy S8", general: 95, redDot: 115, twoXScope: 135, fourXScope: 155, awmScope: 175 },
+                    { name: "Galaxy S7", general: 100, redDot: 120, twoXScope: 140, fourXScope: 160, awmScope: 180 },
+                    { name: "Galaxy S6", general: 105, redDot: 125, twoXScope: 145, fourXScope: 165, awmScope: 185 }
+                ]
+            },
+            {
+                brand: "iPhone",
+                models: [
+                    { name: "12", general: 110, redDot: 130, twoXScope: 150, fourXScope: 170, awmScope: 190 },
+                    { name: "12 Pro", general: 115, redDot: 135, twoXScope: 155, fourXScope: 175, awmScope: 195 },
+                    { name: "11", general: 120, redDot: 140, twoXScope: 160, fourXScope: 180, awmScope: 200 },
+                    { name: "11 Pro", general: 125, redDot: 145, twoXScope: 165, fourXScope: 185, awmScope: 200 },
+                    { name: "XR", general: 130, redDot: 150, twoXScope: 170, fourXScope: 190, awmScope: 200 }
+                ]
+            }
+        ];
+
+        document.getElementById('searchBox').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            const resultsContainer = document.getElementById('device-info');
+            resultsContainer.innerHTML = '';
+            devices.forEach(device => {
+                device.models.forEach(model => {
+                    if (device.brand.toLowerCase().includes(query) || model.name.toLowerCase().includes(query)) {
+                        const deviceCard = document.createElement('div');
+                        deviceCard.className = 'device-card';
+                        deviceCard.innerHTML = `
+                            <h3>${device.brand} ${model.name}</h3>
+                            <ul>
+                                <li>General: ${model.general}</li>
+                                <li>Red Dot: ${model.redDot}</li>
+                                <li>2X Scope: ${model.twoXScope}</li>
+                                <li>4X Scope: ${model.fourXScope}</li>
+                                <li>AWM Scope: ${model.awmScope}</li>
+                            </ul>
+                        `;
+                        resultsContainer.appendChild(deviceCard);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
